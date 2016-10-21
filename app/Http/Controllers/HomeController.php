@@ -40,6 +40,9 @@ class HomeController extends Controller
         $inviter_id = DB::table('users')->where('id', $userId)->get()->first()->inviter_id;
         $inviter = DB::table('users')->where('id', $inviter_id)->get()->first();
 
+        if($inviter == null)
+            $inviter = false;
+
         return view('home', [
             'invited_users' => $invited_users,
             'active_link' => $active_link,
