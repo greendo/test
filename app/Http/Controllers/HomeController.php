@@ -69,12 +69,11 @@ class HomeController extends Controller
                 ]);
             }
             else {
-                $referals->inviter_id = $userId;
-                $referals->link_one = null;
-                $referals->time_one = null;
-                $referals->link_two = $this->rndlnk();
-                $referals->time_two = time();
-                $referals->save();
+                DB::table('referal')->insert([
+                    'inviter_id' => $userId,
+                    'link_two' => $this->rndlnk(),
+                    'time_two' => time()
+                ]);
             }
 
             return Redirect::to('home');

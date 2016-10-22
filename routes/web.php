@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/register', 'RegistersUsers@showRegistrationForm');
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/link_error', 'Auth\RegisterController@linkError');
