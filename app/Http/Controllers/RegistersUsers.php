@@ -47,8 +47,9 @@ class RegistersUsers
                     $inviter = $user->name;
                 }
             }
-            if ($ref->link_two != $link && $ref->link_one != $link)
-                $valid_link = false;
+            if ($link)
+                if ($ref->link_two != $link && $ref->link_one != $link)
+                    $valid_link = false;
         }
 
         if ($valid_link)
